@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Md Jahid Hasan - WordPress Developer & DevOps Enthusiast</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive-style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/10005a5d45.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <!-- Header Section Starts Here -->
+
+    <header class="header-section" id="header-section">
+        <div class="container">
+            <div class="row justify-content-center align-items-md-center align-items-start py-3">
+                <div class="col-lg-3 col-2">
+                    <a href="" class="site-link"><img src="media/Logo.png" alt="Site Logo" class="site-logo"></a>
+                </div>
+
+                <!-- Responsive Toggle Area Starts Here-->
+
+                <div class="col-10 d-md-none d-block">
+                    <div class="responsive-mobile-menu-col-inner d-flex flex-column align-items-end">
+                        <div class="responsive-mobile-menu-toggle-icon-div d-flex align-items-end">
+                            <span  class="btn btn-primary" type="button" data-toggle="collapse" data-target="#toggleContent" aria-expanded="false" aria-controls="toggleContent"><i class="fa-solid fa-bars"></i></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="collapse mt-3 toggle-content col-12" id="toggleContent">
+                    <div class="card card-body d-flex flex-column gap-4">
+                        <ul class="p-md-0 pt-2 m-0 list-unstyled d-flex flex-md-row flex-column justify-content-center align-items-center gap-lg-5 gap-2">
+                            <li class="dropdown"><a href="#about-section" class="header-nav-link dropdown-toggle text-decoration-none d-inline-block" role="button" data-bs-toggle="dropdown" aria-expanded="false">About</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item header-nav-link d-inline-block" href="#about-section">About Me</a></li>
+                                    <li><a class="dropdown-item header-nav-link d-inline-block" href="#skills-section">My Skills</a></li>
+                                    <li><a class="dropdown-item header-nav-link d-inline-block" href="#experiences-section">Experiences</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#projects-section" class="header-nav-link text-decoration-none d-inline-block">Projects</a></li>
+                            <li><a href="#certifications-section" class="header-nav-link text-decoration-none d-inline-block">Certifications</a></li>
+                            <li><a href="#contact-section" class="header-nav-link text-decoration-none d-inline-block" loading="lazy">Contact</a></li>
+                        </ul>
+                        <ul class="p-0 m-0 list-unstyled d-flex justify-content-md-end justify-content-center align-items-center gap-lg-3 gap-3">
+                            <li><a href="https://github.com/hmjahid" target="_blank" class="header-social-link d-inline-block"><i class="fa-brands fa-github"></i></a></li>
+                            <li><a href="https://www.linkedin.com/in/md-jahid-hasan-584712243/" target="_blank" class="header-social-link d-inline-block"><i class="fa-brands fa-linkedin"></i></a></li>
+                            <li><a href="https://medium.com/@mdjahidhasan919" target="_blank" class="header-social-link d-inline-block"><i class="fa-brands fa-medium"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Responsive Toggle Area Ends Here-->
+
+                <div class="col-lg-6 col-md-8 d-md-block d-none">
+                    <ul class="p-md-0 pt-2 m-0 list-unstyled d-flex justify-content-center align-items-center gap-lg-5 gap-3">
+                        <li class="dropdown"><a href="#about-section" class="header-nav-link dropdown-toggle text-decoration-none d-inline-block" role="button" data-bs-toggle="dropdown" aria-expanded="false">About</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item header-nav-link d-inline-block" href="#about-section">About Me</a></li>
+                                <li><a class="dropdown-item header-nav-link d-inline-block" href="#skills-section">My Skills</a></li>
+                                <li><a class="dropdown-item header-nav-link d-inline-block" href="#experiences-section">Experiences</a></li>
+                              </ul>
+                        </li>
+                        <li><a href="#projects-section" class="header-nav-link text-decoration-none d-inline-block">Projects</a></li>
+                        <li><a href="#certifications-section" class="header-nav-link text-decoration-none d-inline-block">Certifications</a></li>
+                        <li><a href="#contact-section" class="header-nav-link text-decoration-none d-inline-block" loading="lazy">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-2 col-6 d-md-block d-none">
+                    <ul class="p-0 m-0 list-unstyled d-flex justify-content-end align-items-center gap-lg-3 gap-md-2 gap-1">
+                        <li><a href="https://github.com/hmjahid" target="_blank" class="header-social-link d-inline-block"><i class="fa-brands fa-github"></i></a></li>
+                        <li><a href="https://www.linkedin.com/in/md-jahid-hasan-584712243/" target="_blank" class="header-social-link d-inline-block"><i class="fa-brands fa-linkedin"></i></a></li>
+                        <li><a href="https://medium.com/@mdjahidhasan919" target="_blank" class="header-social-link d-inline-block"><i class="fa-brands fa-medium"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Header Section Ends Here -->
+
+
+    <!-- Hero Section Starts Here -->
+
+    <section class="hero-section" id="hero-section">
+        <div class="container">
+            <div class="row flex-lg-row flex-column-reverse justify-content-between align-items-center gap-lg-0 gap-4">
+                <div class="col-lg-6">
+                    <div class="hero-col-inner d-flex flex-column gap-2">
+                        <h1 class="hero-title m-0 pb-2">Md Jahid Hasan</h1>
+                        <h3 class="hero-subtitle section-subtitle m-0">WordPress Developer | DevOps Enthusiast</h3>
+                        <p class="hero-desc desc-text m-0">I am a qualified and dedicated WordPress Developer with expertise in Website Design and Development, Responsive Web Design, and Landing Page Design. My experience spans WordPress theme customization, WooCommerce website development, and converting PSD/Figma designs into HTML and WordPress. Additionally, I have foundational skills in building basic React.js applications and landing pages.
+
+                        With a strong blend of creativity and analytical skills, I am detail-oriented, hard-working, and committed to delivering high-quality results. I thrive in collaborative environments and am equally capable of working independently, taking initiative when needed. Passionate about coding, I enjoy designing and developing responsive, user-friendly front-end experiences, particularly within a Linux environment. Always eager to expand my knowledge, I am a quick learner who loves embracing new technologies.</p>
+                        <div class="hero-btn-div contact-btn-div">
+                            <a href="#contact-section" class="hero-btn contact-btn text-decoration-none d-inline-block">Contact Me</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="hero-img-col-inner">
+                        <img src="media/Hero Image.png" alt="Hero Images" class="hero-img">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hero Section Ends Here -->
+
+
+    <!-- About Section Starts Here -->
+
+    <section class="about-section" id="about-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="about-col-inner d-flex flex-column justify-content-center align-items-center gap-2">
+                        <h2 class="about-title section-title m-0">About Me & My Skills</h2>
+                        <p class="about-desc desc-text m-0 pt-3">🌟 Assalamu Alaikum! I'm Md Jahid Hasan, based in Jashore, Bangladesh. As a passionate and detail-driven Web & WordPress Developer, I thrive on challenges and focus intently on my responsibilities. With more than a year of hands-on experience in WordPress and over two years in web development, I specialize in creating high-quality WordPress sites in Linux environments, using tools like Elementor and Divi Builder. I’m a quick learner, constantly eager to explore new technologies. For a deeper dive into my coding projects, feel free to visit my GitHub: https://github.com/hmjahid.</p>
+                        <p class="about-desc desc-text m-0 pt-2">🌐 Linux System Administrator and DevOps Enthusiast: 
+                        I'm passionate about Linux and system administration, with expertise in various distributions, server OS, and virtualization tools like Proxmox and VirtualBox. My skills in containerization, including Docker and Kubernetes, and my familiarity with cloud computing on AWS, enable me to work efficiently in dynamic environments. I’m proficient with Ansible and enjoy leveraging monitoring tools such as Nagios, Prometheus, and Grafana to optimize systems. With strong creative and analytical abilities, I am detail-oriented and committed, excelling both in team settings and independently.</p>
+                        <ul class="m-0 p-0 list-unstyled">
+                            <li>
+                                <p class="about-desc desc-text m-0 pt-2">🛠️ Expertise: HTML, CSS, Git, Github, Linux (Redhat, Centos, Fedora, Alma Linux, Rocky Linux, Debian, Ubuntu, Ubuntu Server), Docker, Podman, Portainer, Unix (FreeBSD), Minikube</p>
+                            </li>
+                            <li>
+                                <p class="about-desc desc-text m-0 pt-2">🛠️ Comfortable: AWS, Kubernetes, Kind, K0S, Helm, Ansible, Bash, Python, Nagios, Prometheus, Grafana, VMWare, VirtualBox, KVM/QEMU, Proxmox, TrueNAS, Nginx, Apache, Javascript, MySQL, PHP</p>
+                            </li>
+                            <li>
+                                <p class="about-desc desc-text m-0 pt-2">🛠️ Familiar: Terraform, ArgoCD, Devtron, Vault, Minio, ELK Stack, Jenkins, Gitlab, OpenStack, OpenNebula, CloudStack, Openshift, React.js, Trivy, SonarQube</p>
+                            </li>
+                            <li>
+                                <p class="about-desc desc-text m-0 pt-2">🛠️ Tools: VS Code, Netlify, Pantheon, Gitkraken, PyCharm, OpenLens, Rancher, Figma, Canva, Nextcloud, Trello, XAMPP</p>
+                            </li>
+                            <li>
+                                <p class="about-desc desc-text m-0 pt-2">🛠️ CMS & Tools: WordPress, Divi, Elementor, LocalWP</p>
+                            </li>
+                        </ul>
+                        <p class="about-desc desc-text m-0 pt-2 text-start">🚀 Let's talk more: "mdjahidhasan919@gmail.com"</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row gap-3">
+                <div class="col-lg-6"></div>
+                <div class="col-lg-6"></div>
+                <div class="col-lg-6"></div>
+                <div class="col-lg-6"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section Starts Here -->
+
+
+    <!-- Projects Section Starts Here -->
+
+    <section class="projects-section" id="projects-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="projects-intro-col-inner d-flex flex-column justify-content-center align-items-center gap-2">
+                        <h2 class="projects-title section-title m-0">Projects</h2>
+                        <p class="projects-desc desc-text m-0">I have completed some projets on WordPress and Web Development. These projects are selected from them.</p>
+                        <p class="projects-desc desc-text m-0 pt-5">Coming Soon. In Sha ALLAH.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row flex-wrap gap-3">
+                <div class="col-lg-6"></div>
+                <div class="col-lg-6"></div>
+                <div class="col-lg-6"></div>
+                <div class="col-lg-6"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section Starts Here -->
+
+
+    <!-- Cetifications Section Starts Here -->
+
+    <section class="certifications-section" id="certifications-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="certifications-intro-col-inner d-flex flex-column justify-content-center align-items-center gap-2">
+                        <h2 class="certifications-title section-title m-0">Certifications</h2>
+                        <p class="certifications-desc desc-text m-0">I have obtained some certifications on Linux, Cloud, WordPress and Web Development. The certifications are below:</p>
+                        <p class="certifications-desc desc-text m-0 pt-5">Coming Soon. In Sha ALLAH.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row flex-wrap gap-3">
+                <div class="col-lg-6"></div>
+                <div class="col-lg-6"></div>
+                <div class="col-lg-6"></div>
+                <div class="col-lg-6"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cetifications Section Ends Here -->
+
+
+    <!-- Contact Section Starts Here -->
+
+    <section class="contact-section" id="contact-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-8 col-lg-10">
+                    <div class="contact-col-inner d-flex flex-column justify-content-center gap-3">
+                        <h2 class="contact-title section-title m-0 text-center">Contact</h2>
+                        <p class="contact-desc desc-text m-0 text-center">Send me your thoughts, requiremnts or planning ...</p>
+                        <form class="contact-form d-flex flex-column justify-content-center align-items-center gap-1" target="_blank" action="c39b17ede6e556da2bc371351f585f74" method="POST">
+                            <input type="text" name="name" class="form-control" placeholder="Full Name" required="">
+                            <input type="email" name="email" class="form-control" placeholder="Email Address" required="">
+                            <textarea type="text" placeholder="Your Message" class="form-control" name="message" rows="10" required=""></textarea>
+                            <div class="contact-submit-btn-div">
+                                <button type="submit" class="contact-btn">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section Ends Here -->
+
+
+    <!-- Footer Section Starts Here -->
+
+    <footer class="footer-section" id="footer-section">
+        <div class="container">
+            <div class="row align-items-end gap-md-0 gap-5">
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-iconic-col-inner d-flex flex-column justify-content-lg-start justify-content-center align-items-center gap-3">
+                        <a href="" class="site-link"><img src="media/Logo.png" alt="Site Logo" class="site-logo"></a>
+                        <h3 class="footer-social-title section-subtitle m-0">Social Links</h3>
+                        <ul class="p-0 m-0 list-unstyled d-flex justify-content-start align-items-center gap-lg-3 gap-3">
+                            <li><a href="https://github.com/hmjahid" target="_blank" class="footer-social-link d-inline-block"><i class="fa-brands fa-github"></i></a></li>
+                            <li><a href="https://www.linkedin.com/in/md-jahid-hasan-584712243/" target="_blank" class="footer-social-link d-inline-block"><i class="fa-brands fa-linkedin"></i></a></li>
+                            <li><a href="https://medium.com/@mdjahidhasan919" target="_blank" class="footer-social-link d-inline-block"><i class="fa-brands fa-medium"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 d-lg-none d-block">
+                    <div class="footer-nav-col-inner d-flex flex-column justify-content-end align-items-center gap-3">
+                        <h3 class="footer-nav-title section-subtitle m-0 text-md-end text-center">Quick Links</h3>
+                        <ul class="p-0 m-0 list-unstyled d-flex flex-column justify-content-center align-items-lg-start align-items-center gap-1">
+                            <li><a href="" class="footer-nav-link d-inline-block" loading="lazy">Home</a></li>
+                            <li><a href="#skills" class="footer-nav-link d-inline-block">Skills</a></li>
+                            <li><a href="#ecperiences" class="footer-nav-link d-inline-block">Experiences</a></li>
+                            <li><a href="#hire-me" class="footer-nav-link d-inline-block">Hire Me</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="footer-content-col-inner d-flex flex-column justify-content-end align-items-center pt-lg-0 pt-md-5 pt-0 gap-3">
+                        <p class="footer-copyright-desc desc-text m-0 text-center">Copyright © 2024 <a href="#header-section" class="footer-content-link d-inline-block">Md Jahid Hasan</a>. All Rights Reserved ®</p>
+                        <p class="footer-dd-desc desc-text m-0 text-center">Designed & Developed by <a href="#header-section" class="footer-content-link d-inline-block">Md Jahid Hasan</a></p>
+                    </div>
+                </div>
+                <div class="col-lg-3 d-lg-block d-none">
+                    <div class="footer-nav-col-inner d-flex flex-column justify-content-end align-items-center gap-3">
+                        <h3 class="footer-nav-title section-subtitle m-0 text-md-end text-center">Quick Links</h3>
+                        <ul class="p-0 m-0 list-unstyled d-flex flex-column justify-content-center align-items-lg-start align-items-center gap-1">
+                            <li><a href="" class="footer-nav-link d-inline-block" loading="lazy">Home</a></li>
+                            <li><a href="#skills" class="footer-nav-link d-inline-block">Skills</a></li>
+                            <li><a href="#ecperiences" class="footer-nav-link d-inline-block">Experiences</a></li>
+                            <li><a href="#hire-me" class="footer-nav-link d-inline-block">Hire Me</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Footer Section Endss Here -->
+
+
+    <!-- Bootstrap JS and dependencies (Popper.js) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js"></script>
+
+    <!-- jQuery and Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    
+</body>
+</html>

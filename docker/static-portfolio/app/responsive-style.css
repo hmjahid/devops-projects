@@ -1,0 +1,24 @@
+@media (max-width:991.98px) {
+    .footer-nav-title {
+        padding-left: 0px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .header-nav-link {
+        font-size: 18px!important;
+    }
+
+}
+
+@media (max-width: 425px) {
+    .header-nav-link {
+        font-size: 16px!important;
+    }
+
+    .site-logo {
+        margin-top: 5px;
+        width: 40px;
+        height: 40px;
+    }
+}

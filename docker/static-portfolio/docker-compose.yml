@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    container_name: static-portfolio
+    ports:
+      - "8589:80"
+      - "8559:443"
+    volumes:
+      - ./app:/usr/share/nginx/html:ro
+      - ./ssl:/etc/nginx/ssl:ro
+    restart: always

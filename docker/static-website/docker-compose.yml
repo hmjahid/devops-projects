@@ -1,0 +1,13 @@
+version: '3.9'
+
+services:
+  static-website:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: my-static-website
+    ports:
+      - "8781:80"
+    volumes:
+      - ./my-website:/usr/share/nginx/html
+    restart: always
