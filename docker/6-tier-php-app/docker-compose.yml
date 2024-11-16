@@ -1,0 +1,91 @@
+version: '3.8'
+
+services:
+
+  # Load Balancer (NGINX)
+  load_balancer:
+    image: nginx:latest
+    depends_on:
+      - app1
+      - app2
+    volumes:
+      - ./nginx/load_balancer.conf:/etc/nginx/nginx.conf
+    ports:
+      - "8374:80"  # External port for accessing the load balancer
+    networks:
+      - app-network
+
+  # Web Server (NGINX for static files)
+  web:
+    image: nginx:latest
+    depends_on:
+      - app1
+      - app2  # Now depends on app2 as well
+    ports:
+      - "8373:80"  # External port for accessing the web server
+    volumes:
+      - ./nginx/web_server.conf:/etc/nginx/nginx.conf
+      - ./app:/var/www/html  # Application files (including images, css, js)
+    networks:
+      - app-network
+
+  # Application Server (PHP with Apache)
+  app1:
+    build:
+      context: .
+    volumes:
+      - ./app:/var/www/html  # Application code
+    environment:
+      APACHE_DOCUMENT_ROOT: /var/www/html
+    networks:
+      - app-network
+    
+  # Application Server (PHP with Apache)
+  app2:
+    build:
+      context: .
+    volumes:
+      - ./app:/var/www/html  # Application code
+    environment:
+      APACHE_DOCUMENT_ROOT: /var/www/html
+    networks:
+      - app-network
+
+  # Database
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: app_db
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    volumes:
+      - db-data:/var/lib/mysql
+    networks:
+      - app-network
+
+  # Cache (Redis)
+  cache:
+    image: redis:alpine
+    networks:
+      - app-network
+
+  # phpMyAdmin
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    depends_on:
+      - db
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: rootpassword
+    ports:
+      - "8372:80"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  db-data:
