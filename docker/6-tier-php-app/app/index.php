@@ -3,16 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <title>6 Tier Php Application1</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 0 auto;
-        }
-
-    </style>
+    <link rel="stylesheet" href="./css/style.css">
+    <title>6 Tier Php Application</title>
 </head>
 <body>
     
