@@ -1,2 +1,5 @@
-#!/bin/bash
-docker run -d --name nginx-container2 -p 8582:80 nginx
+#!/bin/bash -xeu
+
+apt update
+apt install python3 -y
+python3 -m http.server 8000
