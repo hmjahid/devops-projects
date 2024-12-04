@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-filebrowser
+  labels:
+    app: filebrowser
+    app.kubernetes.io/instance: {{ .Release.Name }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: filebrowser
+      app.kubernetes.io/instance: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: filebrowser
+        app.kubernetes.io/instance: {{ .Release.Name }}
+    spec:
+      initContainers:  # Add this section for permission settings
+      - name: set-permissions
+        image: busybox
+        command: ["sh", "-c", "chown -R 1000:1000 /srv && chmod -R 755 /srv"]
+        volumeMounts:
+        - mountPath: /srv
+          name: woocommerce-data
+      containers:
+      - name: filebrowser
+        image: filebrowser/filebrowser:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - mountPath: /srv
+          name: woocommerce-data
+      volumes:
+      - name: woocommerce-data
+        persistentVolumeClaim:
+          claimName: {{ .Release.Name }}-woocommerce-pvc

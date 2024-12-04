@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: woocommerce
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: woocommerce
+      app.kubernetes.io/instance: {{ .Release.Name }}
+      app.kubernetes.io/name: woocommerce
+  template:
+    metadata:
+      labels:
+        app: woocommerce
+        app.kubernetes.io/instance: {{ .Release.Name }}
+        app.kubernetes.io/name: woocommerce
+    spec:
+      containers:
+        - name: woocommerce
+          image: "{{ .Values.woocommerce.image.repository }}:{{ .Values.woocommerce.image.tag }}"
+          imagePullPolicy: {{ .Values.woocommerce.image.pullPolicy }}
+          env:
+            - name: WORDPRESS_DB_HOST
+              value: "{{ .Release.Name }}-mysql"
+            - name: WORDPRESS_DB_USER
+              value: {{ .Values.mysql.auth.user | default "default_user" | quote }}
+            - name: WORDPRESS_DB_PASSWORD
+              value: {{ .Values.mysql.auth.password | default "default_password" | quote }}
+            - name: WORDPRESS_DB_NAME
+              value: {{ .Values.mysql.auth.database | default "default_database" | quote }}
+          volumeMounts:
+            - mountPath: /var/www/html
+              name: woocommerce-data
+      volumes:
+        - name: woocommerce-data
+          persistentVolumeClaim:
+            claimName: "{{ .Release.Name }}-woocommerce-pvc"
