@@ -1,0 +1,128 @@
+replicaCount: 3  # Set HA by default
+
+image:
+  repository: nginx
+  pullPolicy: IfNotPresent
+  tag: ""
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  create: true
+  automount: true
+  annotations: {}
+  name: ""
+
+podAnnotations: {}
+podLabels: {}
+
+podSecurityContext: {}
+securityContext: {}
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: false
+  className: ""
+  annotations: {}
+  hosts:
+    - host: chart-example.local
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls: []
+
+resources: {}
+  # Uncomment and set if resource limits are needed
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+autoscaling:
+  enabled: true
+  minReplicas: 3
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 70
+
+mysql:
+  image: mysql:8.0
+  auth:
+    rootPassword: root_password
+    user: woocommerce
+    password: woocommerce_password
+    database: woocommerce
+  storage:
+    enabled: true
+    accessModes: ReadWriteOnce
+    class: "fast-storage"
+    size: 10Gi
+  volumeMounts:
+    - name: mysql-storage
+      mountPath: /var/lib/mysql
+
+phpmyadmin:
+  image: phpmyadmin/phpmyadmin:latest
+  service:
+    type: ClusterIP
+
+redis:
+  image: redis:7.0
+  service:
+    type: ClusterIP
+  storage:
+    enabled: true
+    accessModes: ReadWriteOnce
+    class: "fast-storage"
+    size: 2Gi
+  volumeMounts:
+    - name: redis-storage
+      mountPath: /data
+
+woocommerce:
+  image:
+    repository: my-local-woocommerce
+    tag: latest
+    pullPolicy: Always
+  storage:
+    enabled: true
+    accessModes: ReadWriteOnce
+    class: "fast-storage"
+    size: 5Gi
+  volumeMounts:
+    - name: woocommerce-storage
+      mountPath: /var/www/html
+
+filebrowser:
+  enabled: true
+  service:
+    type: ClusterIP
+  storage:
+    enabled: true
+    accessModes: ReadWriteOnce
+    size: 5Gi
+
+
+volumes:
+  - name: mysql-storage
+    persistentVolumeClaim:
+      claimName: mysql-pvc
+  - name: redis-storage
+    persistentVolumeClaim:
+      claimName: redis-pvc
+  - name: woocommerce-storage
+    persistentVolumeClaim:
+      claimName: woocommerce-pvc
+
+volumeMounts: []
+
+nodeSelector: {}
+tolerations: []
+affinity: {}
+

@@ -1,0 +1,18 @@
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: woocommerce
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: woocommerce
+  minReplicas: {{ .Values.woocommerce.autoscaling.minReplicas }}
+  maxReplicas: {{ .Values.woocommerce.autoscaling.maxReplicas }}
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: {{ .Values.woocommerce.autoscaling.targetCPUUtilizationPercentage }}

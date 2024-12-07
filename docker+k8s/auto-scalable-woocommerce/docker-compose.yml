@@ -1,0 +1,78 @@
+version: '3.8'
+
+services:
+  woocommerce:
+    image: hmjahid/custom-woocommerce:latest
+    container_name: woocommerce
+    ports:
+      - "8387:80" # Maps the container's port 80 to host's port 8387
+    environment:
+      WORDPRESS_DB_HOST: mysql:3306
+      WORDPRESS_DB_USER: woocommerce
+      WORDPRESS_DB_PASSWORD: woocommerce_password
+      WORDPRESS_DB_NAME: woocommerce
+      REDIS_HOST: redis
+    depends_on:
+      - mysql
+      - redis
+    volumes:
+      - woocommerce_data:/var/www/html
+    networks:
+      - app-network
+
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: woocommerce
+      MYSQL_USER: woocommerce
+      MYSQL_PASSWORD: woocommerce_password
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - app-network
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+    ports:
+      - "8388:80" # Maps the container's port 80 to host's port 8388
+    depends_on:
+      - mysql
+    networks:
+      - app-network
+
+  redis:
+    image: redis:7.0
+    container_name: redis
+    volumes:
+      - redis_data:/data
+    networks:
+      - app-network
+
+  filebrowser:
+    image: filebrowser/filebrowser
+    container_name: filebrowser
+    ports:
+      - "8389:80" # Maps the container's port 80 to host's port 8389
+    volumes:
+      - woocommerce_data:/srv # Mount WooCommerce files for File Browser
+      - ./filebrowser_config:/config # Persistent File Browser configuration
+    environment:
+      FB_AUTH_PASSWORD: admin
+      FB_AUTH_USERNAME: admin
+    networks:
+      - app-network
+
+volumes:
+  woocommerce_data: # Persistent storage for WooCommerce
+  mysql_data:       # Persistent storage for MySQL
+  redis_data:       # Persistent storage for Redis
+
+networks:
+  app-network:
+    driver: bridge

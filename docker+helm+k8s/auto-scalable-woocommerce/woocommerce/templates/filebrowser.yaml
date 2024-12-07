@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: filebrowser
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: filebrowser
+  template:
+    metadata:
+      labels:
+        app: filebrowser
+    spec:
+      containers:
+      - name: filebrowser
+        image: {{ .Values.filebrowser.image }}
+        ports:
+        - containerPort: 80
+        env:
+        - name: FB_AUTH_USERNAME
+          value: {{ .Values.filebrowser.auth.username }}
+        - name: FB_AUTH_PASSWORD
+          value: {{ .Values.filebrowser.auth.password }}
+        volumeMounts:
+        - name: shared-data
+          mountPath: /srv # FileBrowser mount path
+        - name: filebrowser-config
+          mountPath: /config  # Mount persistent volume for Filebrowser configuration
+        env:
+        - name: FILEBROWSER_DATABASE
+          value: /srv/filebrowser.db  # Use this path for Filebrowser's database
+      volumes:
+      - name: shared-data
+        emptyDir: {}
+      - name: filebrowser-config

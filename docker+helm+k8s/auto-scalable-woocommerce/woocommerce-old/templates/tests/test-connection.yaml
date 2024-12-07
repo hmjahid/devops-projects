@@ -10,5 +10,6 @@ spec:
   containers:
     - name: wget
       image: busybox
-      command: ['sh', '-c', 'wget -qO- http://{{ .Release.Name }}-woocommerce:{{ .Values.woocommerce.service.port }} || exit 1']
+      command: ['wget']
+      args: ['{{ include "woocommerce.fullname" . }}:{{ .Values.service.port }}']
   restartPolicy: Never
