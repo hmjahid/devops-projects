@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: filebrowser
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: filebrowser
+  template:
+    metadata:
+      labels:
+        app: filebrowser
+    spec:
+      containers:
+      - name: filebrowser
+        image: filebrowser/filebrowser
+        ports:
+          - containerPort: 80
+        volumeMounts:
+          - name: shared-woocommerce-files
+            mountPath: /srv   # Adjust the mountPath if needed to fit WooCommerce files structure
+      volumes:
+        - name: shared-woocommerce-files
+          emptyDir: {}  # Temporary storage, it will be wiped when pods are deleted
