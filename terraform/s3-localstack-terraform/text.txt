@@ -1,0 +1,1 @@
+It's a test file for uploading to multiple s3 buckets in localstack
