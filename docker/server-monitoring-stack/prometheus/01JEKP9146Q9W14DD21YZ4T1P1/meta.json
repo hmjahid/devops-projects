@@ -1,0 +1,17 @@
+{
+	"ulid": "01JEKP9146Q9W14DD21YZ4T1P1",
+	"minTime": 1733669402354,
+	"maxTime": 1733673600000,
+	"stats": {
+		"numSamples": 750,
+		"numSeries": 20,
+		"numChunks": 20
+	},
+	"compaction": {
+		"level": 1,
+		"sources": [
+			"01JEKP9146Q9W14DD21YZ4T1P1"
+		]
+	},
+	"version": 1
+}
